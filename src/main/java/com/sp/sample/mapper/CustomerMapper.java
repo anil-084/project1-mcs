@@ -1,5 +1,6 @@
 package com.sp.sample.mapper;
 
+import com.sp.sample.dto.CustomerDetailsDto;
 import com.sp.sample.dto.CustomerDto;
 import com.sp.sample.entity.Customer;
 
@@ -12,12 +13,12 @@ public class CustomerMapper {
         return customerDto;
     }
 
-   /* public static CustomerDetailsDto mapToCustomerDetailsDto(Customer customer, CustomerDetailsDto customerDetailsDto) {
+    public static CustomerDetailsDto mapToCustomerDetailsDto(Customer customer, CustomerDetailsDto customerDetailsDto) {
         customerDetailsDto.setName(customer.getName());
         customerDetailsDto.setEmail(customer.getEmail());
         customerDetailsDto.setMobileNumber(customer.getMobileNumber());
         return customerDetailsDto;
-    }*/
+    }
 
     public static Customer mapToCustomer(CustomerDto customerDto, Customer customer) {
         customer.setName(customerDto.getName());

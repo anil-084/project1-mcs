@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.*;
         description = "CRUD REST APIs in EazyBank to CREATE, UPDATE, FETCH AND DELETE account details"
 )
 @RestController
-@RequestMapping(path = "api/v2", produces = {MediaType.APPLICATION_JSON_VALUE})
+@RequestMapping(path="/api", produces = {MediaType.APPLICATION_JSON_VALUE})
 @Validated
 public class AccountController {
 
@@ -68,7 +68,8 @@ public class AccountController {
     }
     )
     @GetMapping("/fetch")
-    public ResponseEntity<CustomerDto> fetchAccount(@RequestParam @Pattern(regexp = "^$|[0-9]{10}") String mobileNumber) {
+    public ResponseEntity<CustomerDto> fetchAccount(@RequestParam @Pattern(regexp="(^$|[0-9]{10})",message = "Mobile number must be 10 digits")
+                                                        String mobileNumber) {
         CustomerDto customerDto = iAccountService.featchAccountDetails(mobileNumber);
         return ResponseEntity.status(HttpStatus.OK).body(customerDto);
     }
@@ -125,7 +126,8 @@ public class AccountController {
     }
     )
     @DeleteMapping("/delete")
-    public ResponseEntity<ResponseDto> updateAccountDetails(@RequestParam String mobileNumber) {
+    public ResponseEntity<ResponseDto> deleteAccountDetails(@RequestParam @Pattern(regexp="(^$|[0-9]{10})",message = "Mobile number must be 10 digits")
+                                                                String mobileNumber) {
         boolean isDeleted = iAccountService.deleteAccount(mobileNumber);
         if (isDeleted) {
             return ResponseEntity
