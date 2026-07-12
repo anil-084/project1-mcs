@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+
+spring:
+  application:
+    name: "accounts"
+  profiles:
+    active: "dev"
+  datasource:
+    url: jdbc:postgresql://localhost:5432/employee_db
+    driverClassName: org.postgresql.Driver
+    username: postgres
+    password: anil9494@
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        formate_sql: false
+
+logging:
+  level:
+    root: INFO
+    com.sp.sample: INFO
+
