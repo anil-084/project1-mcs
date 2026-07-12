@@ -1,14 +1,34 @@
 package com.sp.sample;
 
+import io.swagger.v3.oas.annotations.ExternalDocumentation;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Contact;
+import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.info.License;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @EnableJpaAuditing
 @SpringBootApplication
+@OpenAPIDefinition(info = @Info(title = "Accounts microservice REST API Documentation",
+		description = "EazyBank Accounts microservice REST API Documentation",
+		version = "v1",
+		contact = @Contact(
+				name = "Anil Kumar",
+				email = "anil@gamil.com",
+				url = "https://www.sample.com"
+		),
+		license = @License(
+				name = "Apache 2.0",
+				url = "https://www.sample.com"
+		)),externalDocs = @ExternalDocumentation(
+		description =  "EazyBank Accounts microservice REST API Documentation",
+		url = "https://www.sample.com/swagger-ui.html"
+))
 public class SampleApplication {
 
-	public static void main(String[] args) {
+	static void main(String[] args) {
 		SpringApplication.run(SampleApplication.class, args);
 	}
 
